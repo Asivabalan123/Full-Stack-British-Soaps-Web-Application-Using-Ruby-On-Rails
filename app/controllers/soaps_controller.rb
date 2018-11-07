@@ -24,17 +24,11 @@ class SoapsController < ApplicationController
   # POST /soaps
   # POST /soaps.json
   def create
-    @soap = Soap.new(soap_params)
+    @director = Director.find(params[:director_id])
+    @soaps = @director.soaps.create(soap_params)
+    redirect_to director_path(@director)
 
-    respond_to do |format|
-      if @soap.save
-        format.html { redirect_to @soap, notice: 'Soap was successfully created.' }
-        format.json { render :show, status: :created, location: @soap }
-      else
-        format.html { render :new }
-        format.json { render json: @soap.errors, status: :unprocessable_entity }
-      end
-    end
+
   end
 
   # PATCH/PUT /soaps/1
@@ -56,6 +50,10 @@ class SoapsController < ApplicationController
   def destroy
     @soap.destroy
     respond_to do |format|
+      @director = Director.find(params[director_id])
+      @soap = @director.soaps.find(params[:soap_id])
+      @soap.destroy
+      redirect_to director_path(@director)
       format.html { redirect_to soaps_url, notice: 'Soap was successfully destroyed.' }
       format.json { head :no_content }
     end

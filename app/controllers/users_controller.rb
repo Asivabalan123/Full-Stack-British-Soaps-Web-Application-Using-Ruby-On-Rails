@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @directors = current_user.all
+    
   end
 
   # GET /users/1

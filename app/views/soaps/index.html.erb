@@ -12,6 +12,9 @@
   <tbody>
     <% @soaps.each do |soap| %>
       <tr>
+        <td><%= soap.name %></td>
+        <td><%= soap.age %></td>
+
         <td><%= link_to 'Show', soap %></td>
         <td><%= link_to 'Edit', edit_soap_path(soap) %></td>
         <td><%= link_to 'Destroy', soap, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +25,4 @@
 
 <br>
 
-<%= link_to 'New Soap', new_soap_path %>
+<%= link_to 'New Soap', new_soaps_path %>

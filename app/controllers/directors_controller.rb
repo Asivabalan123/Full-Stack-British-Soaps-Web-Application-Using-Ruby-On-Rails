@@ -15,6 +15,7 @@ class DirectorsController < ApplicationController
   # GET /directors/new
   def new
     @director = Director.new
+  
   end
 
   # GET /directors/1/edit
