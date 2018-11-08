@@ -50,12 +50,9 @@ class SoapsController < ApplicationController
   def destroy
     @soap.destroy
     respond_to do |format|
-      @director = Director.find(params[director_id])
-      @soap = @director.soaps.find(params[:soap_id])
-      @soap.destroy
-      redirect_to director_path(@director)
       format.html { redirect_to soaps_url, notice: 'Soap was successfully destroyed.' }
       format.json { head :no_content }
+
     end
   end
 
@@ -67,6 +64,6 @@ class SoapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def soap_params
-      params.require(:soap).permit(:soap_name, :soap_age)
+      params.require(:soap).permit(:soap_name, :soap_age, :director_id)
     end
 end
