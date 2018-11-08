@@ -24,17 +24,10 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
-
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
-    end
+    @soap = Soap.find(params[:soap_id])
+    @review = @soap.reviews.create(review_params)
+    @review.save
+    redirect_to soap_path(@soap)
   end
 
   # PATCH/PUT /reviews/1
@@ -56,7 +49,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to reviews_url(params[:soap_id]), notice: 'Review was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -7,4 +7,7 @@ resources :directors do
   resources :soaps
 end
 
+resources :soaps do
+  resources :reviews
 end
+end 

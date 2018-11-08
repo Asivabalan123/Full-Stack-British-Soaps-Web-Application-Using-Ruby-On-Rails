@@ -11,6 +11,8 @@
    <%= link_to '[x]', [soap.director, soap],
             method: :delete,
             data: { confirm:'Are you sure?'} %></p>
+
+    <%= link_to 'show', soap, :class => 'btn btn-default' %>    
    </div>
 <% end %>
 
@@ -29,6 +31,9 @@
 </p>
 <% end %>
 
+
+
 <hr>
 <%= link_to 'Edit', edit_director_path(@director), :class => 'btn btn-default' %> |
-<%= link_to 'Back', directors_path %>
+<%= link_to 'Back', directors_path, :class => 'btn btn-default' %>
+<%= link_to 'Reviews', soaps_path, :class => 'btn btn-default' %>
