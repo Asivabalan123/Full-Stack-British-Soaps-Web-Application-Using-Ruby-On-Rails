@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Director</h1>
+<p><strong><%= @director.first_name %> <%= @director.last_name %><%= @director.age  %></strong></p>
+<hr>
+
+ <h3>Soap</h3>
+<% @director.soaps.each do |soap| %>
+   <div class="well">
+   <p><strong><%= soap.soap_name %></strong>: <%= soap.soap_age %>
+   <%= link_to '[x]', [soap.director, soap],
+            method: :delete,
+            data: { confirm:'Are you sure?'} %></p>
+
+    <%= link_to 'show', soap, :class => 'btn btn-default' %>    
+   </div>
+<% end %>
+
+   <h3>Add Soap</h3>
+<%= form_for([@director, @director.soaps.build]) do |f| %>
+<p>
+  <%= f.label :soap_name %><br>
+  <%= f.text_field(:soap_name,{:class => 'form-control'}) %>
+</p>
+ <p>
+  <%= f.label :soap_age %><br>
+  <%= f.text_area(:soap_age,{:class => 'form-control'}) %>
+</p>
+ <p>
+  <%= f.submit({:class => 'btn btn-default'}) %>
+</p>
+<% end %>
+
+
+
+<hr>
+<%= link_to 'Edit', edit_director_path(@director), :class => 'btn btn-default' %> |
+<%= link_to 'Back', directors_path, :class => 'btn btn-default' %>
+<%= link_to 'Reviews', soaps_path, :class => 'btn btn-default' %>

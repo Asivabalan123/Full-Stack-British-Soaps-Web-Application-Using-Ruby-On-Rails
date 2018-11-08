@@ -1,0 +1,26 @@
+<h1>Editing Director</h1>
+
+
+<%= link_to 'Show', @director %> |
+<%= link_to 'Back', directors_path %>
+
+<%= form_for :director, url: director_path(@director), method: :patch do |f| %>
+  <p>
+    <%= f.label :first_name %><br>
+    <%= f.text_field(:first_name, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %><br>
+    <%= f.text_field(:last_name, {:class => 'form-control'})  %>
+  </p>
+
+  <p>
+    <%= f.label :age %><br>
+    <%= f.text_field(:age, {:class => 'form-control'}) %>
+  </p>
+
+  <p>
+    <%= f.submit({:class => 'btn btn-primary'}) %>
+  </p>
+<% end %>
