@@ -1,3 +1,10 @@
 <p id="notice"><%= notice %></p>
+<script>
+window.onclick = myFunction;
+
+function myFunction() {
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "#EDEDED";
+}
+</script>
 <%= link_to 'Edit', edit_soap_path(@soap), :class => 'btn btn-default' %> |
 <%= link_to 'Back', soaps_path, :class => 'btn btn-default'%>

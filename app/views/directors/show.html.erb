@@ -1,6 +1,13 @@
 <p id="notice"><%= notice %></p>
+<script>
+window.onclick = myFunction;
 
-<h1>Director</h1>
+function myFunction() {
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "#C7EDE4";
+}
+</script>
+
+<h1>Producers</h1>
 <p><strong><%= @director.first_name %> <%= @director.last_name %><%= @director.age  %></strong></p>
 <hr>
 
@@ -22,10 +29,7 @@
   <%= f.label :soap_name %><br>
   <%= f.text_field(:soap_name,{:class => 'form-control'}) %>
 </p>
- <p>
-  <%= f.label :soap_age %><br>
-  <%= f.text_area(:soap_age,{:class => 'form-control'}) %>
-</p>
+
  <p>
   <%= f.submit({:class => 'btn btn-default'}) %>
 </p>
