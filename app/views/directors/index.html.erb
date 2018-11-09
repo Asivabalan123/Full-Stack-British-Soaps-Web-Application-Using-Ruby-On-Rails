@@ -1,7 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Directors</h1>
+<h1>Producers</h1><br>
+<img src="picture.jpg" align= "right" width="400px" height="400px" alt="image">
+<script>
+window.onclick = myFunction;
 
+function myFunction() {
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "#C7EDE4";
+}
+</script>
 <table>
   <thead>
     <tr>
@@ -12,12 +19,14 @@
   <tbody>
     <% @directors.each do |director| %>
       <tr>
-        <td><%= director.first_name %></td>
-        <td><%= director.last_name %></td>
-        <td><%= director.age %></td>
+        <td><strong><%= director.first_name %></strong></td>
 
-        <td><%= link_to 'Show', director, :class => 'btn btn-default' %></td>
-        <td><%= link_to 'Edit', edit_director_path(director),:class => 'btn btn-default' %></td>
+        <td>|<%= director.last_name %> <br> </td>
+
+
+
+        <td><%= link_to 'Show', director, :class => 'btn btn-default'  %> |<br></td>
+        <td><%= link_to 'Edit', edit_director_path(director),:class => 'btn btn-default'  %> |<br></td>
         <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn btn-danger' %></td>
       </tr>
     <% end %>
@@ -26,4 +35,4 @@
 
 <br>
 
-<%= link_to 'New Director', new_director_path %>
+<%= link_to 'New Producer', new_director_path, :class => 'btn btn-default'  %>

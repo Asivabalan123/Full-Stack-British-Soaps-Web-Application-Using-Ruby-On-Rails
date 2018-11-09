@@ -1,11 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 
-<h3>Review</h3>
-<% @soap.reviews.each do |review| %>
+<h3>Reviews</h3>
+<% @soap.comments.each do |comment| %>
   <div class="well">
-  <p><strong><%= review.title %></strong>: <%= review.description %>
-  <%= link_to '[x]', [review.soap, review],
+  <p><strong><%= comment.title %></strong>: <%= comment.description %>
+  <%= link_to '[x]', [comment.soap, comment],
            method: :delete,
            data: { confirm:'Are you sure?'} %></p>
   </div>
@@ -13,7 +13,7 @@
 
 <hr>
 <h3>Add Review</h3>
-<%= form_for([@soap, @soap.reviews.build]) do |f| %>
+<%= form_for([@soap, @soap.comments.build]) do |f| %>
 <p>
   <%= f.label :title %><br>
   <%= f.text_field(:title,{:class => 'form-control'}) %>
@@ -28,6 +28,5 @@
 <% end %>
 
 <hr>
-<%= link_to 'Edit', edit_soap_path(@soap), :class => 'btn btn-default' %> |
-<%= link_to 'Back', directors_soaps_path, :class => 'btn btn-default'%>
-<%= link_to 'Review', soap, :class => 'btn btn-default' %>
+
+<%= link_to 'Back', directors_path, :class => 'btn btn-default'%>

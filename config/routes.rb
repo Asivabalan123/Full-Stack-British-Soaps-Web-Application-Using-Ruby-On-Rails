@@ -8,6 +8,6 @@ resources :directors do
 end
 
 resources :soaps do
-  resources :reviews
+  resources :comments
 end
-end 
+end

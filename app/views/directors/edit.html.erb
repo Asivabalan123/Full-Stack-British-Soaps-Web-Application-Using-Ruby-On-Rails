@@ -1,11 +1,14 @@
-<h1>Editing Director</h1>
+<h1>Editing Producer</h1>
+<script>
+window.onclick = myFunction;
 
-
-<%= link_to 'Show', @director %> |
-<%= link_to 'Back', directors_path %>
+function myFunction() {
+    document.getElementsByTagName("BODY")[0].style.backgroundColor = "#C7EDE4";
+}
+</script>
 
 <%= form_for :director, url: director_path(@director), method: :patch do |f| %>
-  <p>
+  <br><p>
     <%= f.label :first_name %><br>
     <%= f.text_field(:first_name, {:class => 'form-control'}) %>
   </p>
@@ -16,11 +19,10 @@
   </p>
 
   <p>
-    <%= f.label :age %><br>
-    <%= f.text_field(:age, {:class => 'form-control'}) %>
-  </p>
-
-  <p>
     <%= f.submit({:class => 'btn btn-primary'}) %>
   </p>
 <% end %>
+
+<br>
+<%= link_to 'Show', @director, {:class => 'btn btn-default'} %> |
+<%= link_to 'Back', directors_path, {:class => 'btn btn-default'} %>
